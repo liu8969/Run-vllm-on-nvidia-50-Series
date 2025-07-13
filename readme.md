@@ -1,20 +1,19 @@
-#5060ti显卡下运行vllm教程整理
-##环境：
+# 5060ti显卡下运行vllm教程整理
+## 环境：
     -ubuntu24.04 lts
     -cuda-12.8
     -nvcc --version 12.8
     -g++ --version 3.3
-    -gcc --version13.3[README.md](https://github.com/user-attachments/files/21204195/README.md)
-
+    -gcc --version13.3
     -cmake --version3.28
     -ninja --version 1.11
     
-##在开始之前
+## 在开始之前
 ==进入bios关闭安全启动！==
 
 自行搜索自己品牌的主板安全启动怎么关闭
 
-##前置条件与系统准备
+## 前置条件与系统准备
 在开始之前，请确保你的系统已更新，并具备必要的工具。
 
 操作系统：Ubuntu 24.04 LTS
@@ -32,15 +31,13 @@ sudo apt update
 sudo apt upgrade -y
 
 ~~~
-##安装一点常用工具
+## 安装一点常用工具
 ~~~
 sudo apt update
 sudo apt install git -y
 sudo apt install curl -y
 #验证安装
-git --help  # 查看 Git 帮助[README.md](https://github.com/user-attachments/files/21204197/README.md)
-[README.md](https://github.com/user-attachments/files/21204196/README.md)
-
+git --help  # 查看 Git 帮助
 curl https://example.com  # 测试 curl 访问网页
 
 ~~~
@@ -72,9 +69,9 @@ cmake --version
 ninja --version
 
 ~~~
-##cuda以及nvidia驱动安装
+## cuda以及nvidia驱动安装
 
-###==注意！一定要关闭bios中的安全启动==
+### **注意！一定要关闭bios中的安全启动**
 
 安装新驱动的关键在于将 NVIDIA 官方软件源添加到系统的 APT 源中。该源提供了最新的驱动和 CUDA Toolkit。
 
@@ -107,7 +104,7 @@ Signing key: /var/lib/shim-signed/mok/MOK.priv
 Public certificate (MOK): /var/lib/shim-signed/mok/MOK.der
 ~~~
 
-===添加cuda路径===
+**添加cuda路径**
 
 安装后，建议将 CUDA 路径加入系统的 PATH 和 LD_LIBRARY_PATH。可以将以下内容添加到 ~/.bashrc（或 Zsh 用户的 ~/.zshrc），然后执行 source：
 
@@ -130,7 +127,7 @@ Cuda compilation tools, release 12.9, V12.8
 Build cuda_12.9.r12.9/compiler.36037853_0
 
 ~~~
-##安装编译vllm
+## 安装编译vllm
 
 安装pipx
 
@@ -174,7 +171,7 @@ Build cuda_12.9.r12.9/compiler.36037853_0
 
 编译完成后进入下一步
 
-##下载模型
+## 下载模型
 
     安装modelscope
     pip install -e . --no-build-isolation
@@ -183,7 +180,7 @@ Build cuda_12.9.r12.9/compiler.36037853_0
     /home/{user}/.cache/modelscope/hub/models
     
     
-##启动vllm
+## 启动vllm
 
 ~~~
 
@@ -202,7 +199,7 @@ vllm serve \
 
 ~~~
 
-##为vllm添加api接口方便调用
+## 为vllm添加api接口方便调用
 ~~~
 cd ..
 mkdir vllm-api
@@ -232,7 +229,7 @@ print("Completion result:", completion)
 运行python文件
     sudo python3 {文件路径}
 
-##安装open-webui
+## 安装open-webui
 ~~~
 cd ..
 mkdir open-webui
@@ -266,16 +263,17 @@ api ： EMPTY
 
 ~~~
 
-###开始愉快的使用
+### 开始愉快的使用
 
-参考https://juejin.cn/post/7523255902439571510
+参考 https://juejin.cn/post/7523255902439571510
 
 https://zhuanlan.zhihu.com/p/1902008703462406116
 
 https://zhuanlan.zhihu.com/p/1922637148236026859
-
-by lcy
+ 
+ by lcy
     
+
 
 
 
