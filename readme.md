@@ -4,7 +4,8 @@
     -cuda-12.8
     -nvcc --version 12.8
     -g++ --version 3.3
-    -gcc --version13.3
+    -gcc --version13.3[README.md](https://github.com/user-attachments/files/21204195/README.md)
+
     -cmake --version3.28
     -ninja --version 1.11
     
@@ -37,7 +38,9 @@ sudo apt update
 sudo apt install git -y
 sudo apt install curl -y
 #验证安装
-git --help  # 查看 Git 帮助
+git --help  # 查看 Git 帮助[README.md](https://github.com/user-attachments/files/21204197/README.md)
+[README.md](https://github.com/user-attachments/files/21204196/README.md)
+
 curl https://example.com  # 测试 curl 访问网页
 
 ~~~
